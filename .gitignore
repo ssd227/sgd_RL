@@ -1,0 +1,11 @@
+*__pycache__
+deep_learning_and_the_game_of_go/*
+.vscode/*
+.idea/*
+go/data/*
+
+log
+
+kgs_index.html
+test_samples.py
+playground.ipynb
