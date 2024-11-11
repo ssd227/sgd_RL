@@ -1,7 +1,6 @@
 import random
 from .base import Agent
-from ..gobangboard import Move
-from ..gobangtypes import Point
+from ..game import Move, Point
 
 __all__ = ['RandomBot']
 
@@ -15,5 +14,5 @@ class RandomBot(Agent):
                 if game_state.is_valid_move(Move.play(candidate)):
                     candidates.append(candidate)
         if not candidates:
-            return Move.pass_turn()
+            return Move.resign()
         return Move.play(random.choice(candidates))

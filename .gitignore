@@ -9,3 +9,6 @@ log
 kgs_index.html
 test_samples.py
 playground.ipynb
+
+go/apps/dlgo/tree_search/refer_code/*
+gobang/web_server/front_end/src/App copy.js

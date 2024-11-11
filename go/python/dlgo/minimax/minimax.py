@@ -3,9 +3,7 @@ import random
 
 from ..agent import Agent
 
-__all__ = [
-    'MinimaxAgent',
-]
+__all__ = ['MinimaxAgent',]
 
 
 class GameResult(enum.Enum):
@@ -23,18 +21,14 @@ def reverse_game_result(game_result):
 
 
 def best_result(game_state):
-    # 递归的结束
-    if game_state.is_over():
-        # Game is already over.
+    if game_state.is_over(): # 递归结束
         if game_state.winner() == game_state.next_player:
-            # We win!
-            return GameResult.win
+            return GameResult.win # We win!
         elif game_state.winner() is None:
-            # A draw.
-            return GameResult.draw
+            return GameResult.draw # A draw.
         else:
-            # Opponent won.
-            return GameResult.loss
+            return GameResult.loss # Opponent won.
+
     # 当前局面没结束，遍历所有legal moves，找best result (递归了所有可能性，复杂度是N！)
     best_result_so_far = GameResult.loss
     for candidate_move in game_state.legal_moves():

@@ -1,18 +1,18 @@
-from dlgobang.gobangtypes import Point, Player
+from dlgobang.gametypes import Point, Player
 import numpy as np
 
 COLS = 'ABCDEFGHJKLMNOPQRST'
 STONE_TO_CHAR = {
     None: ' . ',
-    Player.black: ' x ',
-    Player.white: ' o ',
+    Player.BLACK: ' x ',
+    Player.WHITE: ' o ',
 }
 
 def print_move(player, move):
     if move.is_resign:
         move_str = 'resigns'
     else:
-        move_str = '%s%d' % (COLS[move.point.col - 1], move.point.row)
+        move_str = '%s%d' % (COLS[move.point.y - 1], move.point.x)
     print('%s %s' % (player, move_str))
 
 
@@ -33,7 +33,7 @@ def point_from_coords(coords):
 
 def coords_from_point(point):
     return '%s%d' % (
-        COLS[point.col - 1],
+        COLS[point.y - 1],
         point.row
     )
 
@@ -48,10 +48,10 @@ class MoveAge():
         return self.move_ages[row, col]
 
     def reset_age(self, point):
-        self.move_ages[point.row - 1, point.col - 1] = -1
+        self.move_ages[point.x - 1, point.y - 1] = -1
 
     def add(self, point):
-        self.move_ages[point.row - 1, point.col - 1] = 0
+        self.move_ages[point.x - 1, point.y - 1] = 0
 
     def increment_all(self):
         self.move_ages[self.move_ages > -1] += 1
