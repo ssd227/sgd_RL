@@ -6,4 +6,4 @@
     完整训练脚本            script/run.py
 
     注1: script/run_parallel.py是平行化尝试，暂时是失败的。
-    注2：init_agent.py暂时没有作用。 
+    注2：init_agent.py暂时没有作用。
